@@ -1,0 +1,20 @@
+*::after,
+*::before,
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+form{
+    justify-content: center;
+}
+
+.row-table{
+    margin-top: 25px;
+}
+
+input{
+    margin-left: 20px;
+}
