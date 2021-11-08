@@ -62,9 +62,16 @@ const d =document,
     ls = localStorage,
     $table = d.querySelector(".table"),
     $form = d.querySelector(".crud-form"),
-    $title = d.querySelector(".title"),
+    $title = d.querySelector(".title-form"),
     $template = d.getElementById("list-template").content,
     $fragment = d.createDocumentFragment();
+
+// Constants modal
+const closeModal = d.querySelector(".close"),
+  openModal = d.querySelector(".open-modal"),
+  modal = d.querySelector(".modal"),
+  modalCont = d.querySelector(".modal-container");
+
 
 
 
@@ -156,16 +163,19 @@ d.addEventListener("submit", async e=>{
 
             ls.setItem('users', JSON.stringify(getData));
             
+            closeFormModal();
             // page refresh
-            clearForm();
-            location.reload();
+            setTimeout(()=>{
+                clearForm();
+                location.reload();
+            },400);
 
         }else{
             // CREATE MODE
             let getData = JSON.parse(ls.getItem("users"));
 
-            let date = new Date
-
+            // let date = new Date
+            
             let newData = {
                     id: Math.floor(Math.random()*1001),
                     name: e.target.name.value,
@@ -177,10 +187,14 @@ d.addEventListener("submit", async e=>{
 
             ls.setItem('users', JSON.stringify([...getData, newData]));
 
+            closeFormModal();
             // page refresh
-            clearForm();
-            location.reload();
+            setTimeout(()=>{
+                clearForm();
+                location.reload();
+            },400);
         }
+
     }
 });
 
@@ -193,7 +207,9 @@ d.addEventListener("click", async e=>{
         $form.second.value = e.target.dataset.second,
         $form.date.value = e.target.dataset.date,
         $form.email.value = e.target.dataset.email,
-        $form.phone.value = e.target.dataset.phone
+        $form.phone.value = e.target.dataset.phone;
+        console.log("abrirModal")
+        openFormModal();
     }
 
     // if delete button was clicked
@@ -215,6 +231,34 @@ d.addEventListener("click", async e=>{
 
         }
     }
+
+});
+
+// Close / Open Modal
+
+openModal.addEventListener("click", e=>{
+    e.preventDefault();
+    openFormModal();
+});
+
+
+const openFormModal = ()=>{
+    modalCont.style.opacity = "1";
+    modalCont.style.visibility = "visible";
+    modal.classList.toggle("modal-close");
+}
+
+const closeFormModal = e=>{
+    modal.classList.toggle("modal-close");
+    setTimeout(()=>{
+        modalCont.style.opacity = "0";
+        modalCont.style.visibility = "hidden";
+    },400);
+}
+
+closeModal.addEventListener("click", e=>{
+    e.preventDefault();
+    closeFormModal();
 });
 
 const clearForm = ()=>{
