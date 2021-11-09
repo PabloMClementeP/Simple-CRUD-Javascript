@@ -10,6 +10,7 @@
 
 .container{
     width: 90vw;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,7 +63,8 @@
 body{
     position: relative;
     height: 100vh;
-    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);}
+    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+}
 
 
 .title-text{
@@ -167,7 +169,7 @@ input{
 
 .modal{
     width: 40%;
-    height: 35%;
+    height: 45%;
     margin-top: 100px;
     background: #FFF;
     display: flex;
@@ -219,3 +221,79 @@ input{
     width: 140px;
     padding: 5px 10px;
 }
+
+
+
+
+/* Media query */
+
+@media screen and (max-width: 1024px) {
+    .crud-title{
+        font-size: 2em;
+    }
+    
+    .text-muted{
+        font-size: .5em;
+    }
+
+    th{
+        font-size: 1.2em;
+        padding: 4px 0;
+    }
+    
+    td{
+        font-size: 1em;
+    }
+
+    .id,
+    .form-id{
+        display: none;
+    }
+
+    .buttons-container > button{
+        width: 90px;
+        font-size: 1rem;
+    }
+
+    .open-modal{
+        margin-right: 90px;
+        font-size: 1.3em;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .container{
+        width: 98vw;
+    }
+
+    .table-container{
+        margin-top: 6px;
+        padding: 10px 8px;
+    }
+
+    .date,
+    .form-date{
+        display: none;
+    }
+
+    .buttons-container > button{
+        width: 50px;
+        font-size: .8em;
+    }
+
+    .open-modal{
+        margin-right: 20px;
+        font-size: 1em;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .form-email,
+    .email{
+        display: none;
+    } 
+}
+
