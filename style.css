@@ -297,3 +297,33 @@ input{
     } 
 }
 
+
+/* check landscape orientation */
+@media screen and (max-width: 780px) and (orientation: landscape) {
+    * {
+        background-color: black;
+     }
+    .container {
+      display: none;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .twin1 {
+        font-weight: 100;
+        font-size: 30px;
+        text-align: center;
+        color: white;
+        padding: 20px;
+    }
+    
+    .twin1::after {
+      Content: "Voltee su móvil en modo vertical para ver el contenido.";
+    }
+  }
